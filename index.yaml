@@ -1,0 +1,16 @@
+apiVersion: v1
+entries:
+  test:
+  - apiVersion: v2
+    appVersion: v0.0.2
+    created: "2024-07-02T11:19:13.306300406Z"
+    description: Test Chart
+    digest: 6eacdba960ed9bb2cfa6be82b897288b2053d89b6713b7d9014a9edb91be7281
+    maintainers:
+    - name: devops-consultants
+    name: test
+    type: application
+    urls:
+    - https://github.com/devops-consultants/helm-charts/releases/download/test-0.0.2/test-0.0.2.tgz
+    version: 0.0.2
+generated: "2024-07-02T11:19:13.306330933Z"
