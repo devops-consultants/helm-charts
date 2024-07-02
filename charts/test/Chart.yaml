@@ -1,0 +1,8 @@
+apiVersion: v2
+name: test
+description: Test Chart
+maintainers:
+  - name: devops-consultants
+type: application
+version: 0.0.1
+appVersion: v0.0.1
