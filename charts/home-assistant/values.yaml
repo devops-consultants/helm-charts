@@ -16,7 +16,7 @@ fullnameOverride: ""
 deploymentStrategy: Recreate
 timezone: Europe/London
 dnsPolicy: ClusterFirstWithHostNet
-hostNerwork: true
+hostNetwork: true
 enableServiceLinks: true
 
 serviceAccount:
