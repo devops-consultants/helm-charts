@@ -65,7 +65,7 @@ spec:
       volumes:
         - name: config
           persistentVolumeClaim:
-            claimName: {{ include "home-assistant.fullname" . }}
+            claimName: {{ include "home-assistant.pvcName" . }}
       {{- with .Values.volumes }}
         {{- toYaml . | nindent 8 }}
       {{- end }}
