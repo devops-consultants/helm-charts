@@ -3,7 +3,7 @@ kind: PersistentVolumeClaim
 metadata:
   labels: 
     {{- include "home-assistant.labels" . | nindent 4 }}
-  name: {{ include "home-assistant.fullname" . }}
+  name: {{ include "home-assistant.pvcName" . }}
 spec:
   accessModes:
     - {{ .Values.persistence.accessMode }}

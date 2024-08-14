@@ -60,3 +60,7 @@ Create the name of the service account to use
 {{- default "default" .Values.serviceAccount.name }}
 {{- end }}
 {{- end }}
+
+{{- define "home-assistant.pvcName" -}}
+{{- default (include "home-assistant.fullname" .) .Values.persistence.pvcName }}
+{{- end }}
