@@ -3,6 +3,18 @@ entries:
   home-assistant:
   - apiVersion: v2
     appVersion: "2023.11"
+    created: "2024-08-14T08:17:36.065399279Z"
+    description: A Helm chart for Home-Assistant
+    digest: 85cc8c7ccda60142c63dd5542d5afaa90e737cdbe4701e29c215269d7714eb36
+    maintainers:
+    - name: devops-consultants
+    name: home-assistant
+    type: application
+    urls:
+    - https://github.com/devops-consultants/helm-charts/releases/download/home-assistant-0.1.3/home-assistant-0.1.3.tgz
+    version: 0.1.3
+  - apiVersion: v2
+    appVersion: "2023.11"
     created: "2024-08-14T07:46:42.762843019Z"
     description: A Helm chart for Home-Assistant
     digest: 2d928efeac90c3dbf24fb4d155069c271ed2e27f9a428eaed16cb2af049a4b3f
@@ -50,4 +62,4 @@ entries:
     urls:
     - https://github.com/devops-consultants/helm-charts/releases/download/test-0.0.2/test-0.0.2.tgz
     version: 0.0.2
-generated: "2024-08-14T07:46:42.762854309Z"
+generated: "2024-08-14T08:17:36.065550893Z"
