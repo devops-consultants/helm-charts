@@ -2,7 +2,7 @@ apiVersion: v2
 name: home-assistant
 description: A Helm chart for Home-Assistant
 type: application
-version: 0.1.1
+version: 0.1.2
 appVersion: "2023.11"
 maintainers:
   - name: devops-consultants
