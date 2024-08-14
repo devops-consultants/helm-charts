@@ -94,13 +94,11 @@ resources:
   #   memory: 128Mi
 
 livenessProbe:
-  httpGet:
-    path: /
-    port: http
+  tcpSocket:
+    port: 8123
 readinessProbe:
-  httpGet:
-    path: /
-    port: http
+  tcpSocket:
+    port: 8123
 
 # Additional environment variables to set on the output Deployment definition.
 extraEnv: {}
