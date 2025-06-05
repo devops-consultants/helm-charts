@@ -73,6 +73,25 @@ entries:
     urls:
     - https://github.com/devops-consultants/helm-charts/releases/download/home-assistant-0.1.0/home-assistant-0.1.0.tgz
     version: 0.1.0
+  osticket:
+  - apiVersion: v2
+    appVersion: 1.18.2
+    created: "2025-06-05T22:11:53.362135705Z"
+    dependencies:
+    - condition: mariadb.internal
+      name: mariadb
+      repository: https://charts.bitnami.com/bitnami
+      version: 20.5.3
+    description: A Helm chart for Kubernetes
+    digest: 30c4e7340383cb8a6451791f7b5d13f6f87425d469a6f5dfa42b0f9e63e1afbf
+    maintainers:
+    - email: rob.coward@devops-consultants.co.uk
+      name: Devops Consultants
+    name: osticket
+    type: application
+    urls:
+    - https://devops-consultants.github.io/helm-charts/osticket-0.1.5.tgz
+    version: 0.1.5
   test:
   - apiVersion: v2
     appVersion: v0.0.2
@@ -86,4 +105,4 @@ entries:
     urls:
     - https://github.com/devops-consultants/helm-charts/releases/download/test-0.0.2/test-0.0.2.tgz
     version: 0.0.2
-generated: "2024-08-14T09:04:55.674443733Z"
+generated: "2025-06-05T22:11:53.356289616Z"
