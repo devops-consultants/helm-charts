@@ -76,14 +76,14 @@ entries:
   osticket:
   - apiVersion: v2
     appVersion: 1.18.2
-    created: "2025-06-08T10:05:28.287350787Z"
+    created: "2025-06-21T15:09:58.929150407Z"
     dependencies:
     - condition: mariadb.internal
       name: mariadb
       repository: https://charts.bitnami.com/bitnami
       version: 20.5.3
     description: A Helm chart for Kubernetes
-    digest: 82cedc3f39d5da54106732e09a59513c49adf2d410da10fd67081b0183b31e85
+    digest: 0b9959d274b03ecc66d5b58e9ecd16d855989c1b2aeb64792409298bbbe3aa6d
     maintainers:
     - email: rob.coward@devops-consultants.co.uk
       name: Devops Consultants
@@ -123,4 +123,4 @@ entries:
     urls:
     - https://github.com/devops-consultants/helm-charts/releases/download/test-0.0.2/test-0.0.2.tgz
     version: 0.0.2
-generated: "2025-06-08T10:05:28.282308874Z"
+generated: "2025-06-21T15:09:58.923339342Z"
