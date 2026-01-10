@@ -121,7 +121,7 @@ mongodb:
   simple:
     image:
       repository: mongo
-      tag: "7.0"
+      tag: "8.2"
       pullPolicy: IfNotPresent
 
   # Operator-based MongoDB (used when enabled=true and useOperator=true)
