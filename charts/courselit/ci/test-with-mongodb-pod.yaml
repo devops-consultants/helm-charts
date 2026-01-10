@@ -1,5 +1,8 @@
-# CI test values - uses a simple MongoDB pod for testing
-# This avoids the CRD timing issues with the MongoDB operator
+# CI test values - uses a simple MongoDB Deployment for testing
+# This avoids the PVC WaitForFirstConsumer issues with StatefulSet in kind
+
+# Enable automatic creation of test secrets (only for CI/testing)
+createTestSecrets: true
 
 app:
   config:
@@ -13,7 +16,7 @@ app:
   gateway:
     enabled: false
 
-  # Use secrets that will be created in CI
+  # Use secrets that will be created by createTestSecrets
   secrets:
     authSecretRef:
       name: courselit-auth

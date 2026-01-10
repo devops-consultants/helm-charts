@@ -1,5 +1,8 @@
-# CI test values - enables MongoDB operator for kind cluster testing
-# This file is used by chart-testing in GitHub Actions workflow
+# CI test values - for chart-testing in GitHub Actions and local kind clusters
+# Creates test secrets automatically for testing purposes only
+
+# Enable automatic creation of test secrets (only for CI/testing)
+createTestSecrets: true
 
 app:
   config:
@@ -13,7 +16,7 @@ app:
   gateway:
     enabled: false
 
-  # Use secrets that will be created in CI
+  # Use secrets that will be created via extraManifests below
   secrets:
     authSecretRef:
       name: courselit-auth
@@ -36,6 +39,19 @@ mongodb:
   operator:
     enabled: false
 
+  # Simple MongoDB settings
+  simple:
+    image:
+      repository: mongo
+      tag: "7.0"
+      pullPolicy: IfNotPresent
+
+  auth:
+    rootUsername: root
+    # Use a test secret that we'll create
+    existingSecret: "courselit-mongodb"
+    secretKey: "password"
+
   # Use smaller resources for CI
   resources:
     requests:
@@ -46,7 +62,8 @@ mongodb:
       cpu: "500m"
 
   storage:
-    size: 5Gi  # Smaller for CI
+    storageClass: "standard"
+    size: 1Gi  # Smaller for CI
 
 # Disable queue service in default CI test
 queue:
