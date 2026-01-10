@@ -20,8 +20,6 @@ spec:
         {{- toYaml . | nindent 8 }}
       {{- end }}
       serviceAccountName: {{ include "courselit.medialit.serviceAccountName" . }}
-      initContainers:
-        {{- include "courselit.mongodb.initContainer" . | nindent 8 }}
       containers:
         - name: medialit
           image: {{ include "courselit.medialit.image" . }}

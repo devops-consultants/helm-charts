@@ -18,8 +18,6 @@ spec:
       securityContext:
         {{- toYaml . | nindent 8 }}
       {{- end }}
-      initContainers:
-        {{- include "courselit.mongodb.initContainer" . | nindent 8 }}
       containers:
         - name: app
           image: {{ include "courselit.app.image" . }}
