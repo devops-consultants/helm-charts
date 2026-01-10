@@ -62,7 +62,8 @@ mongodb:
       cpu: "500m"
 
   storage:
-    storageClass: "standard"
+    # Use emptyDir to avoid WaitForFirstConsumer PVC deadlock in kind
+    useEmptyDir: true
     size: 1Gi  # Smaller for CI
 
 # Disable queue service in default CI test

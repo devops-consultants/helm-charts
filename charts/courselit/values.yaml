@@ -133,6 +133,8 @@ mongodb:
     secretKey: "password"
 
   storage:
+    # Use emptyDir instead of PVC (useful for CI/testing, data is not persisted)
+    useEmptyDir: false
     storageClass: ""  # Use cluster default if not specified
     size: 10Gi
 
