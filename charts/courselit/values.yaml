@@ -121,12 +121,12 @@ mongodb:
   simple:
     image:
       repository: mongo
-      tag: "7.0"
+      tag: "8.2"
       pullPolicy: IfNotPresent
 
   # Operator-based MongoDB (used when enabled=true and useOperator=true)
   # Requires MongoDB Community Operator
-  version: "7.0.0"
+  version: "8.2"
   type: ReplicaSet  # or "Standalone"
   members: 3
 
