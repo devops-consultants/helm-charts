@@ -325,3 +325,4 @@ kubectl delete namespace courselit
 
 This Helm chart is provided under the MIT License.
 CourseLIT itself is licensed under its own terms - see the project repository for details.
+
