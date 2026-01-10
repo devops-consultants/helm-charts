@@ -1,0 +1,75 @@
+# CI test values - for chart-testing in GitHub Actions and local kind clusters
+# Creates test secrets automatically for testing purposes only
+
+# Enable automatic creation of test secrets (only for CI/testing)
+createTestSecrets: true
+
+app:
+  config:
+    superAdminEmail: admin@example.com
+
+  # Disable ingress in CI - kind cluster doesn't have ingress controller
+  ingress:
+    enabled: false
+
+  # Gateway API also disabled for CI
+  gateway:
+    enabled: false
+
+  # Use secrets that will be created via extraManifests below
+  secrets:
+    authSecretRef:
+      name: courselit-auth
+      key: auth-secret
+    emailSecretRef:
+      name: courselit-email
+      userKey: email-user
+      passKey: email-pass
+      hostKey: email-host
+      fromKey: email-from
+
+mongodb:
+  # Deploy simple MongoDB StatefulSet for CI testing
+  enabled: true
+
+  # Use simple deployment mode (not operator)
+  useOperator: false
+
+  # Don't deploy operator as subchart in CI
+  operator:
+    enabled: false
+
+  # Simple MongoDB settings
+  simple:
+    image:
+      repository: mongo
+      tag: "7.0"
+      pullPolicy: IfNotPresent
+
+  auth:
+    rootUsername: root
+    # Use a test secret that we'll create
+    existingSecret: "courselit-mongodb"
+    secretKey: "password"
+
+  # Use smaller resources for CI
+  resources:
+    requests:
+      memory: "256Mi"
+      cpu: "250m"
+    limits:
+      memory: "512Mi"
+      cpu: "500m"
+
+  storage:
+    # Use emptyDir to avoid WaitForFirstConsumer PVC deadlock in kind
+    useEmptyDir: true
+    size: 1Gi  # Smaller for CI
+
+# Disable queue service in default CI test
+queue:
+  enabled: false
+
+# Disable MediaLit in default CI test
+medialit:
+  enabled: false
