@@ -1,5 +1,44 @@
 apiVersion: v1
 entries:
+  courselit:
+  - apiVersion: v2
+    appVersion: latest
+    created: "2026-01-10T12:42:46.224542855Z"
+    dependencies:
+    - condition: queue.enabled,valkey.enabled
+      name: valkey
+      repository: https://valkey-io.github.io/valkey-helm
+      tags:
+      - queue
+      version: 0.9.2
+    - condition: mongodb.operator.enabled
+      name: community-operator
+      repository: https://mongodb.github.io/helm-charts
+      tags:
+      - mongodb
+      - operator
+      version: 0.10.0
+    description: A Helm chart for deploying CourseLIT Learning Management System on
+      Kubernetes
+    digest: f21abb11b2c6b786abaf53abd616024fd3b0035dc9a617274779b11e96a9e53a
+    home: https://courselit.app
+    keywords:
+    - courselit
+    - lms
+    - education
+    - learning
+    maintainers:
+    - email: hello@courselit.app
+      name: CourseLIT Team
+    - email: rob.coward@devops-consultants.co.uk
+      name: DevOps Consultants
+    name: courselit
+    sources:
+    - https://github.com/codelitdev/courselit
+    type: application
+    urls:
+    - https://github.com/devops-consultants/helm-charts/releases/download/courselit-0.1.0/courselit-0.1.0.tgz
+    version: 0.1.0
   home-assistant:
   - apiVersion: v2
     appVersion: "2023.11"
@@ -123,4 +162,4 @@ entries:
     urls:
     - https://github.com/devops-consultants/helm-charts/releases/download/test-0.0.2/test-0.0.2.tgz
     version: 0.0.2
-generated: "2025-07-13T15:50:41.713282719Z"
+generated: "2026-01-10T12:42:46.224565491Z"
