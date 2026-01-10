@@ -252,7 +252,7 @@ medialit:
   serviceAccount:
     create: true
     annotations: {}
-      # eks.amazonaws.com/role-arn: arn:aws:iam::ACCOUNT_ID:role/ROLE_NAME
+    # eks.amazonaws.com/role-arn: arn:aws:iam::ACCOUNT_ID:role/ROLE_NAME
     name: ""
 
   resources:
