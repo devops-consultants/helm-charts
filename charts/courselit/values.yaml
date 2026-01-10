@@ -50,6 +50,10 @@ app:
       memory: "512Mi"
       cpu: "500m"
 
+  # Node selector - image only available for amd64 architecture
+  nodeSelector:
+    kubernetes.io/arch: amd64
+
   # Kubernetes service configuration
   service:
     type: ClusterIP
