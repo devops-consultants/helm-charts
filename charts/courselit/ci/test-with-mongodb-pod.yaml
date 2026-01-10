@@ -1,0 +1,87 @@
+# CI test values - uses a simple MongoDB pod for testing
+# This avoids the CRD timing issues with the MongoDB operator
+
+app:
+  config:
+    superAdminEmail: admin@example.com
+
+  # Disable ingress in CI - kind cluster doesn't have ingress controller
+  ingress:
+    enabled: false
+
+  # Gateway API also disabled for CI
+  gateway:
+    enabled: false
+
+  # Use secrets that will be created in CI
+  secrets:
+    authSecretRef:
+      name: courselit-auth
+      key: auth-secret
+    emailSecretRef:
+      name: courselit-email
+      userKey: email-user
+      passKey: email-pass
+      hostKey: email-host
+      fromKey: email-from
+
+mongodb:
+  # Disable operator-based MongoDB deployment
+  enabled: false
+
+  # Don't deploy operator
+  operator:
+    enabled: false
+
+  # Point to a test MongoDB instance that will be deployed separately
+  external:
+    connectionString: "mongodb://test-mongodb:27017/courselit"
+
+# Disable queue service in default CI test
+queue:
+  enabled: false
+
+# Disable MediaLit in default CI test
+medialit:
+  enabled: false
+
+# Add a simple test MongoDB deployment
+# Note: This would normally be done via a separate Helm chart or manifest
+extraManifests:
+  - |
+    apiVersion: v1
+    kind: Service
+    metadata:
+      name: test-mongodb
+    spec:
+      ports:
+        - port: 27017
+          targetPort: 27017
+      selector:
+        app: test-mongodb
+  - |
+    apiVersion: apps/v1
+    kind: Deployment
+    metadata:
+      name: test-mongodb
+    spec:
+      selector:
+        matchLabels:
+          app: test-mongodb
+      template:
+        metadata:
+          labels:
+            app: test-mongodb
+        spec:
+          containers:
+            - name: mongodb
+              image: mongo:7.0
+              ports:
+                - containerPort: 27017
+              resources:
+                requests:
+                  memory: "256Mi"
+                  cpu: "250m"
+                limits:
+                  memory: "512Mi"
+                  cpu: "500m"
