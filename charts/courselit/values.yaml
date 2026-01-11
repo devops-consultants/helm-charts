@@ -292,3 +292,25 @@ securityContext:
     drop:
       - ALL
   readOnlyRootFilesystem: false
+
+# Extra Kubernetes manifests to deploy
+# This allows you to deploy additional resources like ExternalSecrets, ConfigMaps, etc.
+# Example:
+# extraManifests:
+#   - apiVersion: external-secrets.io/v1beta1
+#     kind: ExternalSecret
+#     metadata:
+#       name: "{{ include \"courselit.fullname\" . }}-aws-secret"
+#     spec:
+#       refreshInterval: 1h
+#       secretStoreRef:
+#         name: aws-secretsmanager
+#         kind: ClusterSecretStore
+#       target:
+#         name: courselit-auth
+#         creationPolicy: Owner
+#       data:
+#         - secretKey: auth-secret
+#           remoteRef:
+#             key: courselit/auth-secret
+extraManifests: []
