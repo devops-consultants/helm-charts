@@ -2,7 +2,7 @@ apiVersion: v2
 name: courselit
 description: A Helm chart for deploying CourseLIT Learning Management System on Kubernetes
 type: application
-version: 0.1.2
+version: 0.1.3
 appVersion: "latest"
 keywords:
   - courselit
