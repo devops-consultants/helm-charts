@@ -31,3 +31,11 @@ dependencies:
     tags:
       - mongodb
       - operator
+  - name: community-operator
+    alias: mongodb-rbac
+    version: "0.13.0"
+    repository: "https://mongodb.github.io/helm-charts"
+    condition: mongodb.operator.enabled
+    tags:
+      - mongodb
+      - rbac
