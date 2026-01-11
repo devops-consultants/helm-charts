@@ -35,7 +35,6 @@ app:
       userKey: "email-user"
       passKey: "email-pass"
       hostKey: "email-host"
-      fromKey: "email-from"
 
     recaptchaSecretRef:
       name: ""  # Optional - reCAPTCHA configuration
@@ -149,6 +148,13 @@ mongodb:
     limits:
       memory: "1Gi"
       cpu: "1000m"
+
+mongodb-rbac:
+  operator:
+    enabled: false
+  databaseRoles:
+    create: true
+    namespace: "courselit"
 
 # Queue service (optional)
 queue:
