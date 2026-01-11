@@ -149,7 +149,7 @@ mongodb:
       memory: "1Gi"
       cpu: "1000m"
 
-mongodn-rbac:
+mongodb-rbac:
   operator:
     enabled: false
   databaseRoles:

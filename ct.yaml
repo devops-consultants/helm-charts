@@ -4,6 +4,9 @@
 # Validate maintainers (set to false to skip validation)
 validate-maintainers: false
 
+# Validate chart schema (set to false to skip validation)
+validate-chart-schema: false
+
 # Target branch for detecting chart changes
 target-branch: main
 
