@@ -58,10 +58,9 @@ spec:
                   name: {{ .Values.app.secrets.emailSecretRef.name }}
                   key: {{ .Values.app.secrets.emailSecretRef.hostKey }}
             - name: EMAIL_FROM
-              valueFrom:
-                secretKeyRef:
-                  name: {{ .Values.app.secrets.emailSecretRef.name }}
-                  key: {{ .Values.app.secrets.emailSecretRef.fromKey }}
+              value: {{ .Values.app.smtp.from | quote }}
+            - name: EMAIL_PORT
+              value: "{{ .Values.app.smtp.port }}"
             {{- if .Values.app.secrets.recaptchaSecretRef.name }}
             - name: RECAPTCHA_SITE_KEY
               valueFrom:
