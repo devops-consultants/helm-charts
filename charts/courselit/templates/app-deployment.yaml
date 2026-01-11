@@ -74,11 +74,19 @@ spec:
                   key: {{ .Values.app.secrets.recaptchaSecretRef.secretKeyKey }}
             {{- end }}
             {{- if .Values.mongodb.enabled }}
+            {{- if .Values.mongodb.useOperator }}
+            - name: DB_CONNECTION_STRING
+              valueFrom:
+                secretKeyRef:
+                  name: {{ include "courselit.fullname" . }}-mongodb-admin-{{ .Values.mongodb.auth.rootUsername }}
+                  key: connectionString.standard
+            {{- else }}
             - name: DB_CONNECTION_STRING
               valueFrom:
                 secretKeyRef:
                   name: {{ include "courselit.fullname" . }}-mongodb-connection
                   key: connectionString
+            {{- end }}
             {{- else }}
             - name: DB_CONNECTION_STRING
               value: {{ .Values.mongodb.external.connectionString | quote }}
